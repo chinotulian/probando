@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pregunta</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    #noBtn {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+<h2>¿Me perdonas?</h2>
+
+<button id="siBtn" onclick="mostrarMensaje('Yo también te amo')">Sí</button>
+<button id="noBtn" onmouseover="moverBoton()">No</button>
+
+<script>
+  function mostrarMensaje(mensaje) {
+    alert(mensaje);
+  }
+
+  function moverBoton() {
+    // Generar posiciones aleatorias para el botón "No"
+    const maxWidth = window.innerWidth - 100; // Evitar que el botón salga completamente de la pantalla
+    const maxHeight = window.innerHeight - 30;
+    const randomX = Math.floor(Math.random() * maxWidth);
+    const randomY = Math.floor(Math.random() * maxHeight);
+
+    // Aplicar nuevas posiciones al botón
+    document.getElementById('noBtn').style.left = `${randomX}px`;
+    document.getElementById('noBtn').style.top = `${randomY}px`;
+
+    // Deshabilitar clics en el botón "No"
+    document.getElementById('noBtn').disabled = true;
+  }
+</script>
+
+</body>
+</html>
